@@ -136,7 +136,7 @@ APP_H=..
 
 # HEADERS
 HEADERS=-I$(CORE_H) -I$(IPV4_H) -I$(IPV6_H) -I$(NETIF_H) -I$(ARCH_H) \
-    -I$(DRIVER_H) -I$(APP_H) -I/home/ragu/build_tools/rtems_latest/arm-rtems4.11/beagleboneblack/lib/include/lwip/include
+    -I$(DRIVER_H) -I$(APP_H) -I$(RTEMS_MAKEFILE_PATH)/lwip/include
 
 
 ################################################################################
