@@ -1,11 +1,29 @@
-//#include "lwip_rtems_tcp_echo_test.h"
 #include <bsp.h>
-int mainEcho(void);
+#include "lwiplib.h"
+#include "lwipopts.h"
+#include "soc_AM335x.h"
+#include "beaglebone.h"
+
 /*----------------------------------------------------------------------------*/
 void* POSIX_Init()
 {
-    /* Initialize echo test. */
-    mainEcho();
+    LWIP_IF lwipIfPort1;
+
+    lwipIfPort1.ipMode=IPADDR_USE_DHCP;
+    startLwip(&lwipIfPort1);
+
+    printk("\n\r lwIP sample application.");
+    printk("\n\r IP address obtained through DHCP");
+    printk("\n\r Ping the ip address to get a response.");
+    while(1)
+    {
+        stats_display();
+        delay(10);
+        sched_yield();
+
+        ; /* Perform nothing */
+    }
+
     return NULL;
 }
 /*----------------------------------------------------------------------------*/
